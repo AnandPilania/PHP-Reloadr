@@ -17,9 +17,9 @@ class Reloadr
       'except' => null,
       'accept' => 'php','htm','css','js'
       ),
-    'set_header' => true,
+    'set_header' => true
     ),
-   $jquery = 'https://code.jquery.com/latest.min.js',
+   $jquery = 'https://code.jquery.com/jquery-latest.min.js',
    $script = 'window.reloadr=function(n){var r,t=[];return{start:function(e){r=setInterval(function(){n.ajax({url:e.url,method:"GET",dataType:"json",success:function(n){if(t.length<=0)t=n;else for(var r in n)n[r]>t[r]&&location.reload()}})},e.freq)}}}($);',
    $list = array();
 
@@ -66,6 +66,10 @@ class Reloadr
 
   public function getScript($jq = false)
   {
+    if($this->config['set_header']){
+      header('Content-type: application/javascript');
+    }
+
     $script = str_ireplace('e.freq', $this->config['freq'], '<script type="text/javascript">'.$this->script.'</script>');
     $script = str_ireplace('e.url', $this->config['route'], $script);
     return ($jq||$this->config['jq']?'<script src="'.$this->jquery.'" type="text/javascript></script>"':'').$script;

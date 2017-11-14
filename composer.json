@@ -1,6 +1,7 @@
 {
     "name": "anandpilania/php-reloadr",
     "description": "Live reload",
+	"keywords": ["reloadr", "live-reloadr", "php-reloadr", "live-development"],
     "license": "MIT",
     "authors": [
         {

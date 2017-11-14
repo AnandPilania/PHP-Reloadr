@@ -39,6 +39,6 @@
     'except' => null, // all files, except these array()
     'accept' => 'php','htm','css','js' // accept only
     ),
-  'set_header' => true // set application/json header to ajax route 
+  'set_header' => true // set `application/javascript` and `application/json` header to ajax route 
   
   
